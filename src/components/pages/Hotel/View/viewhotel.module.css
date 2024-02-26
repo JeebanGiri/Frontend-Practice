@@ -1,0 +1,58 @@
+.viewHotelContainer {
+  margin: 20px;
+}
+
+.hotelTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hotelTable th,
+.hotelTable td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.optionsContainer {
+  position: relative;
+}
+
+.optionsButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.optionsButton:hover {
+  color: #007bff;
+}
+
+.editDeleteContainer {
+  position: absolute;
+  top: -25px;
+  right: 30px;
+  height: 90px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editButton,
+.deleteButton {
+  padding: 5px 10px;
+  margin: 2px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  background-color: #0056b3;
+}

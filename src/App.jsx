@@ -1,0 +1,356 @@
+import React, { useState } from "react";
+import { Routes } from "./routes";
+import {
+  BrowserRouter as Router,
+  Route,
+  useNavigate,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Navbar from "./components/Resuable/Navbar/navbar";
+import AddHotel from "./components/pages/Hotel/Register/addhotel";
+import EditHotel from "./components/pages/Hotel/Edit/edithotel";
+import ViewHotel from "./components/pages/Hotel/View/viewhotel";
+import EmailVerification from "./components/Authentication/Verification/emailverification";
+import Home from "./components/pages/Home/home";
+import Register from "./components/Authentication/Register/register";
+import Login from "./components/Authentication/Login/login";
+import Dropdown from "./components/Resuable/Dropdown/dropdown";
+import HotelLanding from "./components/pages/Hotel/hotellanding";
+import Footer from "./components/pages/Footer/footer";
+import SearchBar from "./components/Resuable/Searchbar/Home-Searchbar/searchbar";
+import Searchbar1 from "./components/Resuable/Searchbar/Logined-Searchbar/searchbar1";
+import LoginedNavbar from "./components/Resuable/Navbar/logined-navbar";
+
+const hotelData = [
+  {
+    Id: "1",
+    name: "Horizen",
+    location: "ktm",
+    rating: "3",
+    owner: "Jeeban Giri",
+  },
+];
+
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<Home />}>
+//       <Route index element={<SearchBar />} />
+//       <Route path="/stay" element={<SearchBar />} />
+//       <Route path="/apartment" element={<SearchBar />} />
+//     </Route>
+//   )
+// );
+
+function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const isAuthenticationPage = () => {
+    const pages = ["/register", "/login"];
+    return pages.includes(window.location.pathname);
+  };
+
+  const handleLogin = () => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      setIsLogin(true);
+      navigate("/profile");
+    }
+  };
+
+  const handleLogout = () => {
+    setTimeout(() => {
+      setIsLogin(false);
+      sessionStorage.removeItem("token");
+      navigate("/login");
+    }, 1000);
+  };
+  //
+  return (
+    <div className="App">
+      {isLogin ? <LoginedNavbar handleLogout={handleLogout} /> : <Navbar />}
+      <Routes>
+        <Routes isAuthorized={false} />
+        {/* <Route path="/register" element={<Register />} /> */}
+        {/* <Route path="/login" element={<Login handleLogin={handleLogin} />} /> */}
+      </Routes>
+      {!isAuthenticationPage() && <Footer />}
+    </div>
+  );
+}
+export default App;
+
+// import React, { useState } from "react";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   useNavigate,
+// } from "react-router-dom";
+// import Navbar from "./components/Resuable/Navbar/navbar";
+// import AddHotel from "./components/pages/Hotel/Register/addhotel";
+// import EditHotel from "./components/pages/Hotel/Edit/edithotel";
+// import ViewHotel from "./components/pages/Hotel/View/viewhotel";
+// import EmailVerification from "./components/Authentication/Verification/emailverification";
+// import Home from "./components/pages/Home/home";
+// import Register from "./components/Authentication/Register/register";
+// import Login from "./components/Authentication/Login/login";
+// import Dropdown from "./components/Resuable/Dropdown/dropdown";
+// import HotelLanding from "./components/pages/Hotel/hotellanding";
+// import Footer from "./components/pages/Footer/footer";
+// import SearchBar from "./components/Resuable/Searchbar/Home-Searchbar/searchbar";
+// import Searchbar1 from "./components/Resuable/Searchbar/Logined-Searchbar/searchbar1";
+// import LoginedNavbar from "./components/Resuable/Navbar/logined-navbar";
+
+// const hotelData = [
+//   {
+//     Id: "1",
+//     name: "Horizen",
+//     location: "ktm",
+//     rating: "3",
+//     owner: "Jeeban Giri",
+//   },
+// ];
+
+// function App() {
+//   const [isLogin, setIsLogin] = useState(false);
+//   const navigate = useNavigate();
+
+//   const isAuthenticationPage = () => {
+//     // "Account"
+//     const pages = ["/register", "/login"];
+//     return pages.includes(window.location.pathname);
+//   };
+
+//   const handleLogin = () => {
+//     setIsLogin(true);
+//     navigate("/");
+//   };
+
+//   // sessionStorage.setItem("token", true);
+
+//   const handleLogout = () => {
+//     setTimeout(() => {
+//       setIsLogin(false);
+//       sessionStorage.removeItem("token");
+//       navigate("/login");
+//     }, 1000);
+//   };
+
+//   return (
+//     <div className="App">
+//       {isLogin ? <LoginedNavbar handleLogout={handleLogout} /> : <Navbar />}
+//       <Routes>
+//         <Routes isAuthorized={false} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+
+//         {/* <Route path="/" element={<Home />} />
+//         <Route path="/hotels" element={<SearchBar />} />
+//         <Route path="/stay" element={<SearchBar />} />
+//         <Route path="/apartment" element={<SearchBar />} /> */}
+//         {/* <Route path="/edit-searchbar" element={<Searchbar1 />} />
+//         <Route path="/email-verification" element={<EmailVerification />} />
+//         <Route path="/add-hotel" element={<AddHotel />} />
+//         <Route path="/edit-hotel" element={<EditHotel />} />
+//         <Route path="/edit-hotel" element={<Dropdown />} />
+//         <Route path="/hotel-homes" element={<HotelLanding />} />
+//         <Route path="/view-hotel" element={<ViewHotel hotels={hotelData} />} /> */}
+//       </Routes>
+//       {!isAuthenticationPage() && <Footer />}
+//     </div>
+//   );
+// }
+
+// function Routing() {
+//   const [isLogin, setIsLogin] = useState(false);
+//   const navigate = useNavigate();
+
+//   const isAuthenticationPage = () => {
+//     // "Account"
+//     const pages = ["/register", "/login"];
+//     return pages.includes(window.location.pathname);
+//   };
+
+//   const handleLogin = () => {
+//     setIsLogin(true);
+//     navigate("/");
+//   };
+
+//   // sessionStorage.setItem("token", true);
+
+//   const handleLogout = () => {
+//     setTimeout(() => {
+//       setIsLogin(false);
+//       sessionStorage.removeItem("token");
+//       navigate("/login");
+//     }, 1000);
+//   };
+
+//   return (
+//     <>
+//       {isLogin ? <LoginedNavbar handleLogout={handleLogout} /> : <Navbar />}
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/hotels" element={<SearchBar />} />
+//         <Route path="/stay" element={<SearchBar />} />
+//         <Route path="/apartment" element={<SearchBar />} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+//         <Route path="/edit-searchbar" element={<Searchbar1 />} />
+//         <Route path="/email-verification" element={<EmailVerification />} />
+//         <Route path="/add-hotel" element={<AddHotel />} />
+//         <Route path="/edit-hotel" element={<EditHotel />} />
+//         <Route path="/edit-hotel" element={<Dropdown />} />
+//         <Route path="/hotel-homes" element={<HotelLanding />} />
+//         <Route path="/view-hotel" element={<ViewHotel hotels={hotelData} />} />
+//       </Routes>
+//       {!isAuthenticationPage() && <Footer />}
+//     </>
+//   );
+// }
+
+// export default App;
+
+// function Routing() {
+//   const [isLogin, setIsLogin] = useState(false);
+//   const navigate = useNavigate();
+
+//   const isAuthenticationPage = () => {
+//     // "Account"
+//     const pages = ["/register", "/login"];
+//     return pages.includes(window.location.pathname);
+//   };
+
+//   const handleLogin = () => {
+//     setIsLogin(true);
+//     navigate("/");
+//   };
+
+//   // sessionStorage.setItem("token", true);
+
+//   const handleLogout = () => {
+//     setTimeout(() => {
+//       setIsLogin(false);
+//       sessionStorage.removeItem("token");
+//       navigate("/login");
+//     }, 1000);
+//   };
+
+//   return (
+//     <>
+//       {isLogin ? <LoginedNavbar handleLogout={handleLogout} /> : <Navbar />}
+//       <Routes>
+//         <Routes isAuthorized={false} />
+//         <Route path="/" element={<Home />} />
+//         <Route path="/hotels" element={<SearchBar />} />
+//         <Route path="/stay" element={<SearchBar />} />
+//         <Route path="/apartment" element={<SearchBar />} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+//         <Route path="/edit-searchbar" element={<Searchbar1 />} />
+//         <Route path="/email-verification" element={<EmailVerification />} />
+//         <Route path="/add-hotel" element={<AddHotel />} />
+//         <Route path="/edit-hotel" element={<EditHotel />} />
+//         <Route path="/edit-hotel" element={<Dropdown />} />
+//         <Route path="/hotel-homes" element={<HotelLanding />} />
+//         <Route path="/view-hotel" element={<ViewHotel hotels={hotelData} />} />
+//       </Routes>
+//       {!isAuthenticationPage() && <Footer />}
+//     </>
+//   );
+// }
+
+// import React, { useState } from "react";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   useNavigate,
+// } from "react-router-dom";
+// import Navbar from "./components/Resuable/Navbar/navbar";
+// import AddHotel from "./components/pages/Hotel/Register/addhotel";
+// import EditHotel from "./components/pages/Hotel/Edit/edithotel";
+// import ViewHotel from "./components/pages/Hotel/View/viewhotel";
+// import EmailVerification from "./components/Authentication/Verification/emailverification";
+// import Home from "./components/pages/Home/home";
+// import Register from "./components/Authentication/Register/register";
+// import Login from "./components/Authentication/Login/login";
+// import Dropdown from "./components/Resuable/Dropdown/dropdown";
+// import HotelLanding from "./components/pages/Hotel/hotellanding";
+// import Footer from "./components/pages/Footer/footer";
+// import SearchBar from "./components/Resuable/Searchbar/Home-Searchbar/searchbar";
+// import Searchbar1 from "./components/Resuable/Searchbar/Logined-Searchbar/searchbar1";
+// import LoginedNavbar from "./components/Resuable/Navbar/logined-navbar";
+
+// const hotelData = [
+//   {
+//     Id: "1",
+//     name: "Horizen",
+//     location: "ktm",
+//     rating: "3",
+//     owner: "Jeeban Giri",
+//   },
+// ];
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Router>
+//         <Routing />
+//       </Router>
+//     </div>
+//   );
+// }
+
+// function Routing() {
+//   const [isLogin, setIsLogin] = useState(false);
+//   const navigate = useNavigate();
+
+//   const isAuthenticationPage = () => {
+//     // "Account"
+//     const pages = ["/register", "/login"];
+//     return pages.includes(window.location.pathname);
+//   };
+
+//   const handleLogin = () => {
+//     setIsLogin(true);
+//     navigate("/");
+//   };
+
+//   // sessionStorage.setItem("token", true);
+
+//   const handleLogout = () => {
+//     setTimeout(() => {
+//       setIsLogin(false);
+//       sessionStorage.removeItem("token");
+//       navigate("/login");
+//     }, 1000);
+//   };
+
+//   return (
+//     <>
+//       {isLogin ? <LoginedNavbar handleLogout={handleLogout} /> : <Navbar />}
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/hotels" element={<SearchBar />} />
+//         <Route path="/stay" element={<SearchBar />} />
+//         <Route path="/apartment" element={<SearchBar />} />
+//         <Route path="/register" element={<Register />} />
+//         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+//         <Route path="/edit-searchbar" element={<Searchbar1 />} />
+//         <Route path="/email-verification" element={<EmailVerification />} />
+//         <Route path="/add-hotel" element={<AddHotel />} />
+//         <Route path="/edit-hotel" element={<EditHotel />} />
+//         <Route path="/edit-hotel" element={<Dropdown />} />
+//         <Route path="/hotel-homes" element={<HotelLanding />} />
+//         <Route path="/view-hotel" element={<ViewHotel hotels={hotelData} />} />
+//       </Routes>
+//       {!isAuthenticationPage() && <Footer />}
+//     </>
+//   );
+// }
+
+// export default App;

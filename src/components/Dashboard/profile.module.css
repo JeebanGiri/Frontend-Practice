@@ -1,0 +1,78 @@
+.profilebox {
+    height: 450px;
+    width: 350px;
+    border: 1px solid #dedcdf;
+    border-radius: 5px;
+    float: right;
+    margin: 10px 50px 0px 0px;
+}
+
+.title {
+    background: #F8F7F9;
+    padding: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+
+.profileimage {
+    display: grid;
+    margin-top: 10px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profileimage img {
+    border-radius: 50px;
+}
+
+.profileimage p {
+    text-align: center;
+}
+
+.icons {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.firstli {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.secondli {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    list-style-type: none;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+.signout {
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: blue;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    left: 35px;
+}
+
+button {
+    border: 1px solid #87B3FB;
+}
+
+.signout:hover {
+    background: #87B3FB;
+    color: white;
+    cursor: pointer;
+}

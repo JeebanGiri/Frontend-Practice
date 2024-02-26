@@ -1,0 +1,84 @@
+.selection {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 150px;
+  left: 1000px;
+}
+
+.dropdown {
+  width: 350px;
+  height: 200px;
+  background: #f0eeee;
+  border-radius: 5px;
+  display: grid;
+}
+
+.guestContent {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.guests {
+  display: flex;
+  gap: 80px;
+  padding: 20px 30px;
+}
+
+.guestActions {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.rooms {
+  display: flex;
+  gap: 80px;
+  padding: 20px 30px;
+}
+
+.roomContent {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.sub {
+  font-size: 35px;
+  cursor: pointer;
+  color: #aeb1b4;
+}
+
+.add {
+  font-size: 38px;
+  cursor: pointer;
+  color: blue;
+}
+
+.valuess p {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.roomActions {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 820px) and (max-width: 1080px) {
+  /* Add media query styles here */
+}
+
+
+@media screen and (max-width: 615px) {
+  .selection {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+  }
+}
