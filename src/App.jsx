@@ -42,7 +42,7 @@ function App() {
 
   const handleLogin = () => {
     setIsLogin(true);
-    navigate("/search");
+    navigate("/");
   };
 
   const handleLogout = () => {
@@ -78,6 +78,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
+      {!isAuthenticationPage() && <Footer />}
     </div>
   );
 }

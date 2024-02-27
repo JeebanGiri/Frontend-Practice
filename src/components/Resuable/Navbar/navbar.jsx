@@ -6,7 +6,7 @@ import Logo from "./logo";
 
 const Navbar = () => {
   const navItems = [
-    { path: "/search", name: "Hotels & Homes" },
+    { path: "/", name: "Hotels & Homes" },
     { path: "/register", name: "Register" },
     { path: "/login", name: "Login" },
   ];
@@ -23,14 +23,19 @@ const Navbar = () => {
         <NavLink to="/" className={styles.logoContainer}>
           <Logo />
         </NavLink>
-
-        <ul className={click ? `${styles.navMenu} ${styles.active}` : styles.navMenu}>
+        <ul
+          className={
+            click ? `${styles.navMenu} ${styles.active}` : styles.navMenu
+          }
+        >
           {navItems.map((item, index) => (
             <li key={index} className={styles.navItem}>
               <NavLink
                 to={item.path}
                 exact="true"
-                className={({isActive})=> ("navLink", isActive) ? `${styles.active}`: `${styles.navLink}`}
+                className={({ isActive }) =>
+                  isActive ? `${styles.active}` : `${styles.navLink}`
+                }
                 onClick={handleClick}
               >
                 {item.name}

@@ -11,7 +11,6 @@ const Searchbar1 = () => {
   const handleGuestInput = () => {
     setGuests(guest);
   };
-
   return (
     <>
       <div className={styles.header}>

@@ -144,7 +144,7 @@ const LoginedNavbar = ({ handleLogout }) => {
             <Logo />
           </NavLink>
           <ul
-            className ={
+            className={
               click ? `${styles.navMenu} ${styles.active}` : styles.navMenu
             }
           >
@@ -153,7 +153,11 @@ const LoginedNavbar = ({ handleLogout }) => {
                 to="/"
                 exact="true"
                 // className={styles.navLink}
-                className={({isActive})=> ("navLink", isActive) ? `${styles.active}`: `${styles.navLink}`}
+                className={({ isActive }) =>
+                  ("navLink", isActive)
+                    ? `${styles.active}`
+                    : `${styles.navLink}`
+                }
                 onClick={handleClick}
               >
                 Hotels & Homes
@@ -172,7 +176,7 @@ const LoginedNavbar = ({ handleLogout }) => {
               <NavLink
                 to="#"
                 className={styles.navLink}
-                onClick={handleProfileClick} // Handle profile icon click
+                onClick={handleProfileClick}
               >
                 {profile}
               </NavLink>
