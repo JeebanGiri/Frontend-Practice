@@ -129,11 +129,11 @@ const LoginedNavbar = ({ handleLogout }) => {
   };
 
   const handleProfileClick = () => {
-    setShowProfileBox(!showProfileBox); // Toggle profile box visibility
+    setShowProfileBox(!showProfileBox);
   };
 
-  const notifi = <IoNotifications />;
-  const profile = <CgProfile />;
+  const notifi = <IoNotifications size={25} />;
+  const profile = <CgProfile size={30} />;
   const username = "Jeeban Giri";
 
   return (
@@ -143,9 +143,8 @@ const LoginedNavbar = ({ handleLogout }) => {
           <NavLink to="/" className={styles.logoContainer}>
             <Logo />
           </NavLink>
-
           <ul
-            className={
+            className ={
               click ? `${styles.navMenu} ${styles.active}` : styles.navMenu
             }
           >
@@ -153,7 +152,8 @@ const LoginedNavbar = ({ handleLogout }) => {
               <NavLink
                 to="/"
                 exact="true"
-                className={styles.navLink}
+                // className={styles.navLink}
+                className={({isActive})=> ("navLink", isActive) ? `${styles.active}`: `${styles.navLink}`}
                 onClick={handleClick}
               >
                 Hotels & Homes

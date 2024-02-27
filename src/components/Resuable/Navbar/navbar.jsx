@@ -6,7 +6,7 @@ import Logo from "./logo";
 
 const Navbar = () => {
   const navItems = [
-    { path: "/", name: "Hotels & Homes" },
+    { path: "/search", name: "Hotels & Homes" },
     { path: "/register", name: "Register" },
     { path: "/login", name: "Login" },
   ];

@@ -91,9 +91,7 @@ const SearchBar = () => {
               <IoBedOutline />
             </div>
             <div className={styles["place-label"]}>
-
               <label htmlFor="destination">
-                
                 <input
                   type="text"
                   name="places"
@@ -179,6 +177,9 @@ const SearchBar = () => {
       </div>
 
       {isOpen && <Dropdown className={styles.popup} />}
+      {/* <main> */}
+      {/* <Outlet /> */}
+      {/* </main> */}
     </>
   );
 };

@@ -30,7 +30,7 @@ const Login = ({ handleLogin }) => {
         toast.success(message);
         setTimeout(() => {
           handleLogin;
-          navigateTo("/");
+          navigateTo("/search");
         }, 2000);
 
         const access_token = response.data.access_token;

@@ -1,82 +1,17 @@
-// import React, { useState } from "react";
-// import SearchBar from "../../Resuable/Searchbar/searchbar";
-// import styles from "./home.module.css";
-// import { FaHotel } from "react-icons/fa";
-// import { BsCalendar2Date } from "react-icons/bs";
-// import { LiaHomeSolid } from "react-icons/lia";
-// import { Outlet, Navigate } from "react-router-dom";
-// import bgImg from "../../../assets/backg.jpg";
-
-// const Home = () => {
-//   // const [isOpen, setIsOpen] = useState(false);
-
-//   // const handleIconClick = (e) => {
-//   //   e.preventDefault();
-//   //   setIsOpen(!isOpen);
-//   // };
-
-//   return (
-//     <>
-//       <div className={styles.imgcontainer}>
-//         {/* <img src={bgImg} alt="bg" /> */}
-//         <div className={styles.homeContent}>
-//           <div id={styles.titleBox}>
-//             <div className={styles.hotelHomes}>
-//               <Navigate to="/#">
-//                 <div className={styles.icon}>
-//                   <FaHotel />
-//                 </div>
-//                 <div className={styles.content}>
-//                   <p className={styles.active}>Hotels & Homes</p>
-//                 </div>
-//               </Navigate>
-//             </div>
-//             <div className={styles.longStay}>
-//               <Navigate to="/stay">
-//                 <div className={styles.icon}>
-//                   <BsCalendar2Date />
-//                 </div>
-//                 <div className={styles.content}>
-//                   <p>Long Stay</p>
-//                 </div>
-//               </Navigate>
-//             </div>
-//             <div className={styles.apartment}>
-//               <Navigate to="/appartment">
-//                 <div className={styles.icon}>
-//                   <LiaHomeSolid />
-//                 </div>
-//                 <div className={styles.content}>
-//                   <p>Apartment</p>
-//                 </div>
-//               </Navigate>
-//             </div>
-//           </div>
-//         </div>
-//         {/* {isOpen && <SearchBar />} */}
-//         <Outlet />
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Home;
-
 import React, { useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
-import styles from "./home.module.css";
+import styles from "../pages/Home/home.module.css";
 import { FaHotel } from "react-icons/fa";
 import { BsCalendar2Date } from "react-icons/bs";
 import { LiaHomeSolid } from "react-icons/lia";
-import img1 from "../../../assets/img1.jpg";
-import img2 from "../../../assets/img2.jpg";
-import img3 from "../../../assets/img3.jpg";
-import img4 from "../../../assets/img4.jpg";
-import img5 from "../../../assets/img5.png";
-import img6 from "../../../assets/img6.png";
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+import img3 from "../../assets/img3.jpg";
+import img4 from "../../assets/img4.jpg";
+import img5 from "../../assets/img5.png";
+import img6 from "../../assets/img6.png";
 
-const Home = () => {
-  const [showSearchBar, setShowSearchBar] = useState(false);
+const HomeLayout = () => {
   const navigateTo = useNavigate();
 
   const handleExlpore = () => {
@@ -85,13 +20,10 @@ const Home = () => {
 
   return (
     <>
-      {/* <div className={styles.imgcontainer}>
+      <div className={styles.imgcontainer}>
         <div className={styles.homeContent}>
           <div id={styles.titleBox}>
-            <div
-              className={styles.hotelHomes}
-              onClick={() => setShowSearchBar(!showSearchBar)}
-            >
+            <div className={styles.hotelHomes}>
               <NavLink to="/">
                 <div className={styles.icon}>
                   <FaHotel />
@@ -101,11 +33,8 @@ const Home = () => {
                 </div>
               </NavLink>
             </div>
-            <div
-              className={styles.longStay}
-              onClick={() => setShowSearchBar(!showSearchBar)}
-            >
-              <NavLink to="/stay">
+            <div className={styles.longStay}>
+              <NavLink to="stay">
                 <div className={styles.icon}>
                   <BsCalendar2Date />
                 </div>
@@ -114,11 +43,8 @@ const Home = () => {
                 </div>
               </NavLink>
             </div>
-            <div
-              className={styles.apartment}
-              onClick={() => setShowSearchBar(!showSearchBar)}
-            >
-              <NavLink to="/apartment">
+            <div className={styles.apartment}>
+              <NavLink to="apartment">
                 <div className={styles.icon}>
                   <LiaHomeSolid />
                 </div>
@@ -129,12 +55,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div> */}
-      {/* <main>
+      </div>
+      <main>
         <Outlet />
-      </main> */}
-
-      {/* <div className={styles.articlecontent}>
+      </main>
+      <div className={styles.articlecontent}>
         <h2>Reach and Explore our site</h2>
         <button className={styles.explore} onClick={handleExlpore}>
           Explore
@@ -251,18 +176,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
-
-export default Home;
-
-// const Home = () => {
-//   return (
-//     <div>
-//       <h1>Home Page</h1>
-//     </div>
-//   );
-// };
-// export default Home;
+export default HomeLayout;

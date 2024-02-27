@@ -44,6 +44,7 @@
 #titleBox a {
     list-style-type: none;
     text-decoration: none;
+    transition: all 0.3s ease-out;
 }
 
 .hotelHomes {
