@@ -19,6 +19,7 @@ import Stay from "./components/Resuable/Searchbar/Home-Searchbar/stay";
 import Apartment from "./components/Resuable/Searchbar/Home-Searchbar/apartment";
 import HomeLayout from "./components/Layouts/HomeLayout";
 import "./App.css";
+import ForgetPassword from "./components/Authentication/ForgetPassword/forgetpassword";
 
 const hotelData = [
   {
@@ -35,8 +36,7 @@ function App() {
   const navigate = useNavigate();
 
   const isAuthenticationPage = () => {
-    // "Account"
-    const pages = ["/register", "/login"];
+    const pages = ["/register", "/login", "/email-verification","/forget-password"];
     return pages.includes(window.location.pathname);
   };
 
@@ -63,6 +63,7 @@ function App() {
           <Route path="/edit-hotel" element={<Dropdown />} />
           <Route path="/hotel-homes" element={<HotelLanding />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route
             path="/view-hotel"

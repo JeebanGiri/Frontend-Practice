@@ -20,17 +20,15 @@ const Login = ({ handleLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     localStorage.setItem("Email", data.email);
-
     axios
       .post("http://localhost:8848/auth/login", data)
       .then((response) => {
         const message = response.data.message;
         toast.success(message);
         setTimeout(() => {
-          handleLogin;
-          navigateTo("/search");
+          handleLogin();
+          navigateTo("/");
         }, 2000);
 
         const access_token = response.data.access_token;
@@ -51,6 +49,42 @@ const Login = ({ handleLogin }) => {
           }
         }
       });
+  };
+
+  const handleForgetPassword = () => {
+    try {
+      const email = localStorage.getItem("Email");
+
+      console.log("Email data", email);
+
+      console.log(email);
+      axios
+        .post("http://localhost:8848/auth/initiate-password-reset", {
+          email: email,
+        })
+        .then((response) => {
+          console.log(response.data);
+          const message = response.data.message;
+          toast.success(message);
+          navigateTo("/forget-password");
+        })
+        .catch((error) => {
+          const errorMsg =
+            error.response.data.message || error.response.data.error.message;
+          if (Array.isArray(errorMsg)) {
+            errorMsg.forEach((err) => toast.error(err));
+          } else if (errorMsg) {
+            toast.error(errorMsg);
+            // if (errorMsg === "") {
+            //   setTimeout(() => {
+            //     navigateTo("/login");
+            //   }, 2000);
+            // }
+          }
+        });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <>
@@ -92,7 +126,19 @@ const Login = ({ handleLogin }) => {
                 </div>
 
                 <div className={style.action}>
-                  <p>Forget your password? Reset Password</p>
+                  <p>
+                    Forget your password?
+                    <span
+                      onClick={handleForgetPassword}
+                      style={{
+                        cursor: "pointer",
+                        marginLeft: "5px",
+                        color: "blue",
+                      }}
+                    >
+                      Reset Password
+                    </span>
+                  </p>
                 </div>
                 <div className={style.btn}>
                   <button type="submit">Sign In</button>

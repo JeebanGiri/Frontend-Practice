@@ -100,14 +100,6 @@ const EmailVerification = () => {
           </p>
           <div className={styles.inputs}>
             <label htmlFor="code">
-              {/* <input
-                type="text"
-                name="code"
-                placeholder="Enter 5-digit code"
-                onChange={handleInputChange}
-                required
-              /> */}
-
               <TextField
                 id="standard-basic"
                 label="Enter 5-digit code"
@@ -124,14 +116,6 @@ const EmailVerification = () => {
           </div>
           <div className={styles["input-email"]}>
             <label htmlFor="email">
-              {/* <input
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                onChange={handleInputChange}
-                required
-              /> */}
-
               <TextField
                 id="standard-basic"
                 label="Enter your email"
@@ -154,7 +138,7 @@ const EmailVerification = () => {
               </span>
             </p>
           </div>
-          <button className={styles.action}>Verify Mme</button>
+          <button className={styles.action}>Verify Me</button>
         </form>
       </div>
     </>

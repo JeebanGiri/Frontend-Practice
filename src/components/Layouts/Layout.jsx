@@ -7,7 +7,7 @@ const Layout = (props) => {
 
   return (
     <>
-      {isLogin.isLogin ? <Navbar /> : <LoginedNavbar />}
+      {isLogin ? <LoginedNavbar /> : <Navbar />}
       <Outlet />
     </>
   );
